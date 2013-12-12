@@ -16,11 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 // edit css for custom display
 $document = JFactory::getDocument();
 $document->addStyleSheet (JURI::Root() ."modules/mod_weather_b/resources/weather.css");
-//add bootstrap js and css for carousel here
-$document->addScript(JURI::Root() . "modules/mod_weather_b/resources/bootstrap.min.js");
-$document->addStyleSheet (JURI::Root() ."modules/mod_weather_b/resources/carousel.css");
-//if you have a mootools conflict enable the next line
-$document->addScript(JURI::Root() . "modules/mod_weather_b/resources/conflict.js");
+
 
 if(count($w)==1)
 //single woeid with or without 5day forecast
@@ -64,6 +60,11 @@ echo '</div>';
 <?php
 //carousel - can't have a 5day forecast with this
 if (count($w) > 1) {
+    //add bootstrap js and css for carousel here
+    $document->addScript(JURI::Root() . "modules/mod_weather_b/resources/bootstrap.min.js");
+    $document->addStyleSheet (JURI::Root() ."modules/mod_weather_b/resources/carousel.css");
+    //if you have a mootools conflict enable the next line
+    $document->addScript(JURI::Root() . "modules/mod_weather_b/resources/conflict.js");
   echo '<div id="'.$unique_id.'carousel" class="carousel slide" data-ride="carousel" data-interval="'.$speed.'">';
   echo '<div class="carousel-inner">';
   $first = true;
