@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5.0" client="site" method="upgrade">
+	<name>Weather bootstrapped</name>
+	<author>Helen</author>
+	<creationDate>December 2013</creationDate>
+	<copyright></copyright>
+	<license></license>
+	<authorEmail>heleneross@gmail.com</authorEmail>
+	<authorUrl>bfgnet.de</authorUrl>
+	<version>1.0</version>
+	<description><![CDATA[
+  <h2>bootstrapped version of the weather module</h2>
+  <p>The code number for the weather condition will be added after the path and before the file extension.</p>
+  <p>To get your WOEID visit <a href="http://weather.yahoo.com/">Yahoo Weather</a> and search for your location</p>
+  <p>The number in the url eg. weather.yahoo.com/united-kingdom/england/harrogate-<span style="background-color:#FFFF93">22514</span>/ is your WOEID</p>
+  <p>If you would like to use your own pictures you will need to rename them to correspond to the weather code eg. 30.png - see <a href="http://developer.yahoo.com/weather/">developer.yahoo.com/weather</a> for a full list of condition codes and set the path and extension to them under Weather Images</p>
+  <p>For smaller forecast pictures you can use http://l.yimg.com/a/i/us/nws/weather/gr/ for the forecast images with an extension of s.png</p> 
+  <p>To change the styling please edit weather css: the classes you can use are in the file</p>
+  <p>You can add any number of these modules to the page - just make sure you set a unique id for each one</p>
+  ]]></description>
+	<files>
+		<filename module="mod_weather_b">mod_weather_b.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+    <filename>weather-class.php</filename>
+    <folder>resources</folder>
+    <folder>weather-images</folder>
+		<folder>tmpl</folder>
+	</files>
+  <config>
+  	<fields name="params">
+			<fieldset name="basic" label="basic">
+        <field name="woeid" type="text" default="638806" label="WOEID" description="location WOEID, separate multiple WOEIDs  with commas, no spaces, if you want a carousel" />
+        <field name="speed" type="text" default="5000" label="Speed" description="carousel speed" filter="integer" />
+        <field name="linktext" type="text" default="Full Forecast" label="Full Forcast" description="Full Forecast text" />
+        <field name="linktitle" type="text" default="Full Yahoo weather forecast" label="Link title" description="title text for full forecast link" />
+        <field name="forecast" type="radio" default="0" label="5 day forecast" description="show 5 day forecast - if you have entered only one WOEID">
+          <option value="1">Yes</option>
+					<option value="0">No</option>
+        </field>
+        <field name="start_collapsed" type="radio" default="1" label="Start collapsed" description="show/hide 5 day forecast on page load with bootstrap templates">
+          <option value="1">Yes</option>
+					<option value="0">No</option>
+        </field>
+        <field name="unique_id" type="text" default="w-" label="unique id" description="if you would like multiple weather modules on a page each must have a unique id" />
+        <field name="units" type="radio" default="c" label="Units" description="celsius or farenheit">
+          <option value="c">celsius</option>
+					<option value="f">farenheit</option>
+        </field>
+        <field name="owncache" type="list" default="1"
+				label="cache" description="cache module output - does not need Joomla cache enabled" >
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+  		<field name="cache_time" type="text" default="60"
+				label="cache time" description="cache time - set in minutes" />
+      <field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+			</field>
+      <field name="modstyle" type="modulelayout" default="default" label="module style" description="use non-bootstrap style if your site does not use bootstrap - it will add in the bootstrap.min.js and carousel.css You must have jQuery loaded. Also disables the mootools slide." />
+      </fieldset>
+      <fieldset name="images" label="Weather Images">
+        <field name="imgpath_big" type="url" default="http://l.yimg.com/a/i/us/nws/weather/gr/" label="Main images" description="The path to the image shown for todays weather" />
+        <field name="img_big_ext" type="text" default="d.png" label="Main image extension" description="filename extension for main images" />
+        <field name="imgpath_small" type="url" default="http://l.yimg.com/a/i/us/we/52/" label="Forecast images" description="The path to the images shown for the forecast" />
+        <field name="img_small_ext" type="text" default=".gif" label="Forecast image extension" description="filename extension for forecast images" />
+      </fieldset>
+    </fields>
+  </config>
+</extension>

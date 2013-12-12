@@ -1,0 +1,26 @@
+649306  Bad-Fallingbostel
+661467  Hohne
+637997  Bergen
+643099  Celle
+694550  Sennelager
+684090  Paderborn
+656022  Gutersloh
+638806  Bielefeld
+659230  Herford
+675922  Munchengladbach
+647702  Elmpt
+44418   London
+22514   Harrogate
+2972    Winnipeg
+2514815 Washington
+2459115 New York
+16545   Colchester
+10807   Andover
+13000   Blandford
+13963   Bristol
+28218   Manchester
+15440   Catterick Garrison
+24181   Hunton
+
+to look up a location use:
+http://isithackday.com/geoplanet-explorer/index.php
