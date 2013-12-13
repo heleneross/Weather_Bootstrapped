@@ -15,32 +15,38 @@ class weather {
     
     public function location ($loc) {
       //city, region, country
-      return $this->weather->channel->xpath('yweather:location/@'.$loc)[0];
+      $l = $this->weather->channel->xpath('yweather:location/@'.$loc);
+      return (string)$l[0];
     }
  
     public function wind ($wind) {
       //chill, direction, speed
-      return $this->weather->channel->xpath('yweather:wind/@'.$wind)[0];
+      $w = $this->weather->channel->xpath('yweather:wind/@'.$wind);
+      return (string)$w[0];
     }
     
     public function unit ($unit) {
       //temperature, distance, pressure, speed
-      return $this->weather->channel->xpath('yweather:units/@'.$unit)[0];
+      $u = $this->weather->channel->xpath('yweather:units/@'.$unit);
+      return (string)$u[0];
     }
        
     public function atmosphere($atmos) {
       //humidity, visibility, pressure, rising
-      return $this->weather->channel->xpath('yweather:atmosphere/@'.$atmos)[0];
+      $a = $this->weather->channel->xpath('yweather:atmosphere/@'.$atmos);
+      return (string)$a[0];
     }
     
     public function astronomy ($ast) {
       //sunrise, sunset
-      return $this->weather->channel->xpath('yweather:astronomy/@'.$ast)[0];
+      $a = $this->weather->channel->xpath('yweather:astronomy/@'.$ast);
+      return (string)$a[0];
     }
     
     public function condition ($cond) {
       //temp, code, text, date - the basic weather data
-      return $this->weather->channel->item->xpath('yweather:condition/@'.$cond)[0];
+      $c = $this->weather->channel->item->xpath('yweather:condition/@'.$cond);
+      return (string)$c[0];
     }
     
     public function link () {
