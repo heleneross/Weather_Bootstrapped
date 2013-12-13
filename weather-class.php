@@ -1,4 +1,13 @@
 <?php
+/**
+* @package weather-bootstrapped
+* @author Helen
+* @website bfgnet.de
+* @email heleneross@gmail.com
+* @copyright Copyright © 2013 Helen Ross - All Rights Reserved 
+* @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+**/
+
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
