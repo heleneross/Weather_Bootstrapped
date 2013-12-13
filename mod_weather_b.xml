@@ -24,7 +24,6 @@
 		<filename>helper.php</filename>
     <filename>weather-class.php</filename>
     <folder>resources</folder>
-    <folder>weather-images</folder>
 		<folder>tmpl</folder>
 	</files>
   <config>
