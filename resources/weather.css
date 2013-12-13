@@ -23,7 +23,7 @@
 .day-text {}
 /*use this next section for overriding the bootstrap defaults*/
 .carousel.slide {border:none;margin-bottom:0}
-.carousel-indicators {bottom:-8px}
+.carousel-indicators {top:142px}
 .carousel-indicators li {background-color: rgba(39,28,28,0.45);border: 1px solid silver}
 .carousel-indicators .active {background-color: #900;width:10px;height:10px;margin:0 1px 1px 1px}
 .carousel-inner .item {background-repeat:no-repeat;padding-bottom:6px}
