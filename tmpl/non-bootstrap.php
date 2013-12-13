@@ -51,13 +51,10 @@ if($forecast5)
   }
 ?>
 <a class="yahoolink" href="<?php echo $w[0]->link(); ?>" title="<?php echo $linktitle; ?>" target="_blank"><?php echo $linktext; ?></a>
-<?php if($forecast5) { ?>
-<button type="button" class="btn btn-small btn-weather" data-toggle="collapse" data-target="#days">...</button>
-<?php }
-echo '</div>'; 
-} ?>
+</div>
 
 <?php
+}
 //carousel - can't have a 5day forecast with this
 if (count($w) > 1) {
     //add bootstrap js and css for carousel here
