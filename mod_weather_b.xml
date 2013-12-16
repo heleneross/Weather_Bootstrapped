@@ -7,7 +7,7 @@
 	<license>GNU/GPL</license>
 	<authorEmail>heleneross@gmail.com</authorEmail>
 	<authorUrl>bfgnet.de</authorUrl>
-	<version>1.0</version>
+	<version>1.5</version>
 	<description><![CDATA[
   <h2>bootstrapped version of the weather module</h2>
   <p>The code number for the weather condition will be added after the path and before the file extension.</p>
@@ -38,6 +38,10 @@
 					<option value="0">No</option>
         </field>
         <field name="start_collapsed" type="radio" default="1" label="Start collapsed" description="show/hide 5 day forecast on page load with bootstrap templates">
+          <option value="1">Yes</option>
+					<option value="0">No</option>
+        </field>
+        <field name="boot_collapse" type="radio" default="0" label="bootstrap collapse" description="yes - use bootstrap collapse, no - use jQuery collapse ">
           <option value="1">Yes</option>
 					<option value="0">No</option>
         </field>
