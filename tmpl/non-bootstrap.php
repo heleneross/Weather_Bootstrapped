@@ -34,7 +34,11 @@ if(count($w)==1)
 
 if($forecast5)
   {
-      echo '<div id="days" class="collapse in">';
+      echo '<div class="days '.$unique_id.'collapse" />';
+      if ($start_collapsed)
+      {
+          echo '<script type="text/javascript">jQuery(document).ready(function() {jQuery( ".'.$unique_id.'collapse" ).css( "display","none" );});</script>';
+      }
       foreach ($w[0]->forecast() as $day)
         {
           echo '<div class="day">';
@@ -48,9 +52,18 @@ if($forecast5)
       echo '</div>';
   }
 ?>
+<?php if($forecast5) { ?>
+<button type="button" onfocus="this.blur()" class="btn-weather <?php echo $unique_id;?>btn"><?php echo ($start_collapsed) ? '+' : '-'; ?></button>
+<script type="text/javascript">
+jQuery(".<?php echo $unique_id;?>btn").click(function() {
+     var txt = jQuery(".<?php echo $unique_id;?>collapse").is(':visible') ? '+' : '-';
+     jQuery(".<?php echo $unique_id;?>btn").text(txt);
+     jQuery(".<?php echo $unique_id;?>collapse").slideToggle("slow");
+});
+</script>
+<?php } ?>
 <a class="yahoolink" href="<?php echo $w[0]->link(); ?>" title="<?php echo $linktitle; ?>" target="_blank"><?php echo $linktext; ?></a>
 </div>
-
 <?php
 }
 //carousel - can't have a 5day forecast with this
@@ -83,5 +96,3 @@ if (count($w) > 1) {
     echo '</div></div>';
 }
 ?>
-
-
