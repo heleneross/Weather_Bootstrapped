@@ -1,5 +1,5 @@
 /*weather-bootstrapped*/
-.weather2 {background-color:#F9FBFC}
+.weather2 {background-color:#F9FBFC;padding-bottom:5px}
 .weatherpic {position:absolute;repeat:no-repeat}
 .weathertext {padding-right:10px;text-align:right;z-index:10;position:relative}
 .location {font-weight:bold;font-size:1.2em;line-height:2em}
@@ -11,10 +11,8 @@
 .date {padding-bottom:10px;color:#1c4171;font-weight:bold}
 .yahoolink{position:relative;z-index:90;font-size:12px;padding:0 0 5px 5px}
 /*use this next line for a bootstrapped template*/
-.btn-weather {position:relative;float:right;z-index:92;margin:5px;padding:0 10px 0 10px}
-/*if you have a non-bootstrap template enable the following line
-.btn-weather {display:none}*/ 
-#days {padding:5px 5px 0 5px;clear:both}
+.btn-weather {position:relative;float:right;z-index:92;margin:3px;padding:0 10px 0 10px;line-height:12px}
+.days {padding:5px 5px 0 5px;clear:both}
 .day {padding: 5px 0 5px 0;display:block;clear:both;border-top:1px solid silver}
 .day img {float:left}
 .daytext {padding-right:5px}
@@ -26,6 +24,8 @@
 .carousel.slide {border:none;margin-bottom:0}
 .carousel-indicators {top:142px}
 .carousel-indicators li {background-color: rgba(39,28,28,0.45);border: 1px solid silver}
+/*ie8 fix*/
+.carousel-indicators li {background-color: #fff\9;}
 /*.carousel-indicators .active {background-color: #900;width:10px;height:10px;margin:0 1px 1px 1px}*/
 .carousel-indicators .active {background-color: #900}
 .carousel-inner .item {background-repeat:no-repeat;padding-bottom:6px}
