@@ -39,6 +39,7 @@ $img_small_ext = $params->get('img_small_ext','.gif');
 $speed = $params->get('speed',5000);
 $unique_id = $params->get('unique_id','w-');
 $start_collapsed = $params->get('start_collapsed',1);
+$boot_collapse = $params->get('boot_collapse',0);
 //path setup
 //uncomment lines below for testing or hardcoding paths
 //$feedpath = 'http://bfgnet.local/feed-data/error.xml';
