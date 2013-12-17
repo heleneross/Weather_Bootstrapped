@@ -20,7 +20,7 @@ if(count($w)==1)
 //single woeid with or without 5day forecast
 {
 ?>
-<div id="<?php echo $unique_id;?>single" class="weather2">
+<div id="<?php echo $unique_id;?>single" class="weather-s">
 <div class="weatherpic">
 <img src="<?php echo $imgpath_big.$w[0]->condition('code').$img_big_ext; ?>" class="img-responsive" /> 
 </div>
@@ -73,6 +73,7 @@ if (count($w) > 1) {
     $document->addStyleSheet (JURI::Root() ."modules/mod_weather_b/resources/carousel.css");
     //if you have a mootools conflict enable the next line
     $document->addScript(JURI::Root() . "modules/mod_weather_b/resources/conflict.js");
+  echo '<div class="weather-c">';
   echo '<div id="'.$unique_id.'carousel" class="carousel slide" data-ride="carousel" data-interval="'.$speed.'">';
   echo '<div class="carousel-inner">';
   $first = true;
@@ -93,6 +94,6 @@ if (count($w) > 1) {
     echo '</div>';
     echo '<a class="yahoolink" href="'.$loc->link().'" title="'.$linktitle.'" target="_blank">'.$linktext.'</a></div>';
     }
-    echo '</div></div>';
+    echo '</div></div></div>';
 }
 ?>

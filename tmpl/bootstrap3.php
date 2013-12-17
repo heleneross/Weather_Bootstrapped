@@ -20,7 +20,7 @@ if(count($w)==1)
 //single woeid with or without 5day forecast
 {
 ?>
-<div id="<?php echo $unique_id;?>single" class="weather2">
+<div id="<?php echo $unique_id;?>single" class="weather-s">
 <div class="weatherpic">
 <img src="<?php echo $imgpath_big.$w[0]->condition('code').$img_big_ext; ?>" class="img-responsive" /> 
 </div>
@@ -80,6 +80,7 @@ echo '</div>';
 <?php
 //carousel - can't have a 5day forecast with this
 if (count($w) > 1) {
+  echo '<div class="weather-c">';
   echo '<div id="'.$unique_id.'carousel" class="carousel slide weather2" data-ride="carousel" data-interval="'.$speed.'">';
   echo '<ol class="carousel-indicators">';
   echo '<li data-target="#'.$unique_id.'carousel" data-slide-to="0" class="active"></li>';
@@ -109,7 +110,7 @@ if (count($w) > 1) {
     echo '</div>';
     echo '<a class="yahoolink" href="'.$loc->link().'" title="'.$linktitle.'" target="_blank">'.$linktext.'</a></div>';
     }
-    echo '</div></div>';
+    echo '</div></div></div>';
 }
 ?>
 

@@ -1,5 +1,6 @@
 /*weather-bootstrapped*/
-.weather2 {background-color:#F9FBFC;padding-bottom:5px}
+.weather-s {background-color:#F9FBFC;padding-bottom:5px}
+.weather-c {{background-color:#F9FBFC}
 .weatherpic {position:absolute;repeat:no-repeat}
 .weathertext {padding-right:10px;text-align:right;z-index:10;position:relative}
 .location {font-weight:bold;font-size:1.2em;line-height:2em}
