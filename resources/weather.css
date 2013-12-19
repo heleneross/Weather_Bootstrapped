@@ -16,6 +16,7 @@
 .days {padding:5px 5px 0 5px;clear:both}
 .day {padding: 5px 0 5px 0;display:block;clear:both;border-top:1px solid silver}
 .day img {float:left}
+.day i {font-size: 40px;margin-top:20px;margin-left:10px;float:left}
 .daytext {padding-right:5px}
 .day p {text-align:right}
 .day-date {font-weight:bold}
@@ -27,6 +28,6 @@
 .carousel-indicators li {background-color: rgba(39,28,28,0.45);border: 1px solid silver}
 /*ie8 fix*/
 .carousel-indicators li {background-color: #fff\9;}
-/*.carousel-indicators .active {background-color: #900;width:10px;height:10px;margin:0 1px 1px 1px}*/
-.carousel-indicators .active {background-color: #900}
+.carousel-indicators .active {background-color: #900;width:10px;height:10px;margin:0 1px 1px 1px}
+/*.carousel-indicators .active {background-color: #900}*/
 .carousel-inner .item {background-repeat:no-repeat;padding-bottom:6px}
