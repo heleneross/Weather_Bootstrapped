@@ -13,6 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 
 require_once(dirname(__FILE__).'/helper.php');
 require_once(dirname(__FILE__).'/weather-class.php');
+require_once(dirname(__FILE__).'/cond_codes.php');
 
 $key = $params->get('woeid','44418');
 $units = $params->get('units','c');
