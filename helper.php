@@ -4,7 +4,7 @@
 * @author Helen
 * @website bfgnet.de
 * @email heleneross@gmail.com
-* @copyright Copyright © 2013 Helen Ross - All Rights Reserved 
+* @copyright Copyright ï¿½ 2013 Helen Ross - All Rights Reserved 
 * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 **/
 
@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 
 class modweather_bHelper
 {
-    function getFeeds($key,$units,$cache){
+    public static function getFeeds($key,$units,$cache){
       $feedarray = array();
       $location = explode(',',$key);
       $feedpath = 'http://weather.yahooapis.com/forecastrss?w=';
@@ -41,7 +41,8 @@ class modweather_bHelper
     }
     
   
-    public function cardinalize($degree) {
+    public static function cardinalize($degree) {
+      $direction = '';
       if($degree == 0) $direction = '';
       if($degree >= 348.75 && $degree <= 11.25) $direction = 'N';
       if($degree > 11.25 && $degree <= 33.75) $direction = 'NNE';
@@ -62,7 +63,7 @@ class modweather_bHelper
     return $direction;
     }
 
-    public function german_city ($city) {
+    public static function german_city ($city) {
       //put the umlauts back in some german cities
         switch (strtoupper($city)) {
         case "MUNCHENGLADBACH":
