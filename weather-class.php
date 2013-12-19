@@ -60,7 +60,8 @@ class weather {
     
     public function link () {
       //url to full forecast - raw url
-      return array_pop(explode('*',$this->weather->channel->link));
+      $link = explode('*',$this->weather->channel->link);
+      return array_pop($link);
     }
     
     public function forecast () {
