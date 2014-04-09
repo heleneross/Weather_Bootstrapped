@@ -1,5 +1,5 @@
 more to come!
-![Basic Parameters](/screenshots/params1.png)
+![Basic Parameters](/weather_docs/screenshots/params1.png)
 
 ![Single forecast](/screenshots/params2.png)
 
