@@ -15,7 +15,7 @@
   <p>The number in the url eg. weather.yahoo.com/united-kingdom/england/harrogate-<span style="background-color:#FFFF93">22514</span>/ is your WOEID</p>
   <p>If you would like to use your own pictures you will need to rename them to correspond to the weather code eg. 30.png - see <a href="http://developer.yahoo.com/weather/">developer.yahoo.com/weather</a> for a full list of condition codes and set the path and extension to them under Weather Images</p>
   <p>For smaller forecast pictures you can use http://l.yimg.com/a/i/us/nws/weather/gr/ for the forecast images with an extension of s.png</p> 
-  <p>To change the styling please edit weather css: the classes you can use are in the file</p>
+  <p>To change the styling please edit weather css - use the files in the resources/less folder, weather.less and colours.less</p>
   <p>You can add any number of these modules to the page - just make sure you set a unique id for each one</p>
   ]]></description>
     <files>
