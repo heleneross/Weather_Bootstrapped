@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5.0" client="site" method="upgrade">
-	<name>Weather bootstrapped</name>
-	<author>Helen</author>
-	<creationDate>December 2013</creationDate>
-	<copyright>Helen</copyright>
-	<license>GNU/GPL</license>
-	<authorEmail>heleneross@gmail.com</authorEmail>
-	<authorUrl>bfgnet.de</authorUrl>
-	<version>1.0</version>
-	<description><![CDATA[
+    <name>Weather bootstrapped</name>
+    <author>Helen</author>
+    <creationDate>January 2013</creationDate>
+    <copyright>Helen</copyright>
+    <license>GNU/GPL</license>
+    <authorEmail>heleneross@gmail.com</authorEmail>
+    <authorUrl>bfgnet.de</authorUrl>
+    <version>2.0</version>
+    <description><![CDATA[
   <h2>bootstrapped version of the weather module</h2>
   <p>The code number for the weather condition will be added after the path and before the file extension.</p>
   <p>To get your WOEID visit <a href="http://weather.yahoo.com/">Yahoo Weather</a> and search for your location</p>
@@ -18,61 +18,191 @@
   <p>To change the styling please edit weather css: the classes you can use are in the file</p>
   <p>You can add any number of these modules to the page - just make sure you set a unique id for each one</p>
   ]]></description>
-	<files>
-		<filename module="mod_weather_b">mod_weather_b.php</filename>
-		<filename>index.html</filename>
-		<filename>helper.php</filename>
-    <filename>weather-class.php</filename>
-    <filename>cond_codes.php</filename>
-    <folder>resources</folder>
-		<folder>tmpl</folder>
-	</files>
-  <config>
-  	<fields name="params">
-			<fieldset name="basic" label="basic">
-        <field name="woeid" type="text" default="638806" label="WOEID" description="location WOEID, separate multiple WOEIDs  with commas, no spaces, if you want a carousel" />
-        <field name="speed" type="text" default="5000" label="Speed" description="carousel speed" filter="integer" />
-        <field name="linktext" type="text" default="Full Forecast" label="Full Forcast" description="Full Forecast text" />
-        <field name="linktitle" type="text" default="Full Yahoo weather forecast" label="Link title" description="title text for full forecast link" />
-        <field name="forecast" type="radio" default="0" label="5 day forecast" description="show 5 day forecast - if you have entered only one WOEID">
-          <option value="1">Yes</option>
-					<option value="0">No</option>
-        </field>
-        <field name="start_collapsed" type="radio" default="1" label="Start collapsed" description="show/hide 5 day forecast on page load with bootstrap templates">
-          <option value="1">Yes</option>
-					<option value="0">No</option>
-        </field>
-        <field name="boot_collapse" type="radio" default="0" label="bootstrap collapse" description="yes - use bootstrap collapse, no - use jQuery collapse ">
-          <option value="1">Yes</option>
-					<option value="0">No</option>
-        </field>
-        <field name="unique_id" type="text" default="w-" label="unique id" description="if you would like multiple weather modules on a page each must have a unique id" />
-        <field name="units" type="radio" default="c" label="Units" description="celsius or farenheit">
-          <option value="c">celsius</option>
-					<option value="f">farenheit</option>
-        </field>
-        <field name="owncache" type="list" default="1"
-				label="cache" description="cache module output - does not need Joomla cache enabled" >
-				<option value="1">Yes</option>
-				<option value="0">No</option>
-			</field>
-  		<field name="cache_time" type="text" default="60"
-				label="cache time" description="cache time - set in minutes" />
-      <field
-					name="cachemode"
-					type="hidden"
-					default="itemid">
-					<option
-						value="itemid"></option>
-			</field>
-      <field name="modstyle" type="modulelayout" default="default" label="module style" description="use non-bootstrap style if your site does not use bootstrap - it will add in the bootstrap.min.js and carousel.css You must have jQuery loaded. Also disables the mootools slide." />
-      </fieldset>
-      <fieldset name="images" label="Weather Images">
-        <field name="imgpath_big" type="url" default="http://l.yimg.com/a/i/us/nws/weather/gr/" label="Main images" description="The path to the image shown for todays weather" />
-        <field name="img_big_ext" type="text" default="d.png" label="Main image extension" description="filename extension for main images" />
-        <field name="imgpath_small" type="url" default="http://l.yimg.com/a/i/us/we/52/" label="Forecast images" description="The path to the images shown for the forecast" />
-        <field name="img_small_ext" type="text" default=".gif" label="Forecast image extension" description="filename extension for forecast images" />
-      </fieldset>
-    </fields>
-  </config>
+    <files>
+        <filename module="mod_weather_b">mod_weather_b.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>weather-class.php</filename>
+        <filename>cond_codes.php</filename>
+        <folder>resources</folder>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" label="basic">
+                <field name="woeid" type="text" default="638806" label="WOEID(s)"
+                       description="location WOEID, separate multiple WOEIDs  with commas, no spaces, if you want a carousel"/>
+                <field name="units" type="radio" default="c" label="Units" description="celsius or farenheit">
+                    <option value="c">celsius</option>
+                    <option value="f">farenheit</option>
+                </field>
+                <field name="linktext" type="text" default="Full Forecast" label="Full Forecast"
+                       description="Full Forecast text for link"/>
+                <field name="linktitle" type="text" default="Full Yahoo weather forecast" label="Link title"
+                       description="title text for full forecast link"/>
+                <field name="unique_id" type="text" default="w-" label="unique id"
+                       description="if you would like multiple weather modules on a page each must have a unique id"/>
+                <field name="wcss" type="filelist" default="weather.css"
+                       label="Weather css"
+                       description="Select which css file you would like to use"
+                       directory="modules/mod_weather_b/resources"
+                       filter="\.css$"
+                       exclude="weather-icons.min.css|carousel.css"
+                       hide_none="true" />
+                <field name="owncache" type="list" default="1"
+                       label="cache" description="cache module output - does not need Joomla cache enabled">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="cache_time" type="text" default="60"
+                       label="cache time" description="cache time - set in minutes"/>
+                <field
+                        name="cachemode"
+                        type="hidden"
+                        default="id">
+                    <option
+                            value="itemid"></option>
+                </field>
+            </fieldset>
+            <fieldset name="single" label="Single forecast">
+                <field name="spacer" type="spacer"
+                       label="choose the information shown on the single forecast, basic is a fixed set of options, all  - you can choose which items you would like, format is paragraphs, all dl - choose the items you would like, format is a definition list"/>
+                <field name="singletype" label="Single forcecast display" type="radio" default="basic"
+                       description="choose the information shown on the single forecast">
+                    <option value="basic">basic</option>
+                    <option value="all">all</option>
+                    <option value="alldl">all dl</option>
+                </field>
+                <field name="spacer1" type="spacer" hr="true"/>
+                <field name="city" type="radio" label="City" default="1">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="region" type="radio" label="Region" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="country" type="radio" label="Country" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="chill" type="radio" label="Windchill" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="direction" type="radio" label="Wind direction" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="speed" type="radio" label="Wind speed" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="humidity" type="radio" label="Humidity" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="visibility" type="radio" label="Visibility" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="pressure" type="radio" label="Pressure" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="rising" type="radio" label="Rising" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="sunrise" type="radio" label="Sunrise" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="sunset" type="radio" label="Sunset" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="temp" type="radio" label="Temperature" default="1">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="low" type="radio" label="Low" default="1">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="high" type="radio" label="High" default="1">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="text" type="radio" label="Condition text" default="1">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="shortdate" type="radio" label="Short Date" default="1">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="longdate" type="radio" label="Long Date" description="short date takes precedence" default="0">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+            </fieldset>
+            <fieldset name="fiveday" label="5 day forecast">
+                <field name="forecast" type="radio" default="0" label="5 day forecast"
+                       description="show 5 day forecast - if you have entered only one WOEID">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="start_collapsed" type="radio" default="1" label="Start collapsed"
+                       description="show/hide 5 day forecast on page load">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="boot_collapse" type="radio" default="0" label="bootstrap collapse"
+                       description="yes - use bootstrap collapse, no - use jQuery collapse ">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="weather_icons" type="radio" default="0" label="use weather-icons"
+                       description="use weather-icons instead of images for 5 day forecast (overrides forecast images)">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+            <fieldset name="carousel" label="Carousel">
+                <field name="tspeed" type="text" default="5000" label="Speed" description="carousel speed"
+                       filter="integer"/>
+                <field name="indicators" type="radio" default="0" label="Carousel indicators"
+                       description="Display carousel indicators">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="add_bootstrap" type="radio" default="0" label="Add bootstrap files"
+                       description="add bootstrap js and css for the carousel (for a non-bootstrap site)">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="mootools_conflict" type="radio" default="0" label="Mootools conflict"
+                       description="The bootstrap carousel can conflict with mootools - try enabling this if you are having problems with the carousel">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+            <fieldset name="images" label="Weather Images">
+                <field name="imgpath_big" type="url" default="http://l.yimg.com/a/i/us/nws/weather/gr/"
+                       label="Main images" description="The path to the image shown for todays weather"/>
+                <field name="img_big_ext" type="text" default="d.png" label="Main image extension"
+                       description="filename extension for main images"/>
+                <field name="imgpath_small" type="url" default="http://l.yimg.com/a/i/us/we/52/" label="Forecast images"
+                       description="The path to the images shown for the forecast"/>
+                <field name="img_small_ext" type="text" default=".gif" label="Forecast image extension"
+                       description="filename extension for forecast images"/>
+                <field name="cacheimg" type="radio" default="1" label="Cache images"
+                       description="Cache weather images">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
 </extension>

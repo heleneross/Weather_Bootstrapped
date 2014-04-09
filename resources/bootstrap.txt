@@ -2,19 +2,19 @@ http://getbootstrap.com/
 
 *bootstrap.min.js*
 
-minified carousel and transition ONLY from bootstrap3
+minified ONLY carousel and transition files from bootstrap3
 
 does not include any other of the other jQuery bootstrap plugins
 
 if you want to compile your own or update this version you need to go to:
 http://getbootstrap.com/customize/
 
-as a minimum you need jQuery functionality - Carousel functionality and Transitions
+as a minimum you need under jQuery functionality - Carousel functionality and Transitions
 
 
 *carousel.css*
 
-minified carousel.css cruched with http://crunchapp.net/
+minified carousel.css crunched with http://crunchapp.net/
 based on carousel.less, mixins.less and variables.less
 originally from bootstrap but modified versions can be found at:
 https://github.com/heleneross/Weather_Bootstrapped/tree/master/less
