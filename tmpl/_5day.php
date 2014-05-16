@@ -19,11 +19,11 @@ if ($weather_icons)
 // Type of collapse - bootstrap or JQuery (JQuery gives better results)
 if ($boot_collapse)
 {
-	echo '<div id="' . $unique_id . 'btn" class="days collapse' . (($start_collapsed) ? '' : ' in') . '" />';
+	echo '<div id="' . $unique_id . 'btn" class="days collapse' . (($start_collapsed) ? '' : ' in') . '" >';
 }
 else
 {
-	echo '<div class="days ' . $unique_id . 'collapse" />';
+	echo '<div class="days ' . $unique_id . 'collapse" >';
 
 	if ($start_collapsed)
 	{
